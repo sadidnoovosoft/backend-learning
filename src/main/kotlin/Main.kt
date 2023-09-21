@@ -1,17 +1,30 @@
 fun main() {
-    data class Employee (val name: String)
-//    class Employee(val name: String)
+/*
+    val a: Int? = 1
+    val b: Long? = a?.toLong()
+    print(b === a?.toLong())
 
-    val emp1 = Employee("Sadid")
-    val emp2 = Employee("Sadid")
+    val myTrue: Boolean = true
+    val myFalse: Boolean = false
+    val boolNull: Boolean? = true
 
-    println(emp1 == emp2) // in case of data class only data will be compared
-    println(emp1 === emp2)
-    println(emp1.equals(emp2)) // in case of data class only data will be compared
+    println(myTrue && myFalse)
+    println(boolNull == myTrue)
 
-    println()
+*/
 
-    println(emp1.name == emp2.name)
-    println(emp1.name === emp2.name)
-    println(emp1.name.equals(emp2.name))
+//     Strings
+    val s: String = "sadid" // immutable
+    println(s.uppercase())
+    println(s)
+
+    val a = "abc"
+    val b = a;
+    println(a === b)
+
+    val str = "abc" + 1
+    println("str: " + str)
+
+    val amount = 9.99
+    println("str: ${'$'}$str")
 }
