@@ -1,30 +1,52 @@
 fun main() {
-/*
-    val a: Int? = 1
-    val b: Long? = a?.toLong()
-    print(b === a?.toLong())
+    var internsArray = arrayOf("sadid", "tejas", "pulkit")
+    println(internsArray.joinToString())
+    internsArray += "vaishnav"
+    println(internsArray.joinToString())
 
-    val myTrue: Boolean = true
-    val myFalse: Boolean = false
-    val boolNull: Boolean? = true
+    val nullArray: Array<String?> = arrayOfNulls(5)
+    println(nullArray[0])
+    println(nullArray.joinToString(","))
 
-    println(myTrue && myFalse)
-    println(boolNull == myTrue)
+    val arr = Array<Int>(3) { i -> i + 1 }
+    for (item in arr) {
+        print("$item  ")
+    }
+    println()
 
-*/
+    // Multi-dimensional arrays
+    val arr1 = Array(3) { i -> Array<Int>(3) { j -> i + j } }
+    println(arr1.contentDeepToString())
 
-//     Strings
-    val s: String = "sadid" // immutable
-    println(s.uppercase())
-    println(s)
+    for (array in arr1) {
+        for (value in array) {
+            print("$value ")
+        }
+        println()
+    }
+    println()
 
-    val a = "abc"
-    val b = a;
-    println(a === b)
+    arr1[0][0] = -99
+    for(i in arr1.indices) {
+        for(j in arr1[i].indices) {
+            print("${arr1[i][j]} ")
+        }
+        println()
+    }
+    println()
 
-    val str = "abc" + 1
-    println("str: " + str)
+    val simpleArray = arrayOf(1, 2, 3)
+    val anotherArray = arrayOf(1, 2, 3)
 
-    val amount = 9.99
-    println("str: ${'$'}$str")
+    println(simpleArray contentDeepEquals  anotherArray)
+
+
+    // Functions on arrays
+    val sumArray = arrayOf(1, 7, -16)
+    println(sumArray.javaClass.name)
+
+    println(sumArray.sum())
+
+    sumArray.shuffle()
+    println(sumArray.joinToString())
 }
