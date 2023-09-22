@@ -1,4 +1,3 @@
-import kotlin.math.log
 import kotlin.random.Random
 
 fun getMax(vararg arr: Int): Int {
@@ -32,7 +31,7 @@ fun main() {
     }
     println(bitValue)
 
-    val arr = Array<Int>(6) { i -> i * i * i }
+    val arr = Array(6) { i -> i * i * i }
     println(arr.joinToString())
 
     for (index in arr.indices) {
