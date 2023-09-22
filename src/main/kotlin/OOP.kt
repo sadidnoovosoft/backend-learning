@@ -35,6 +35,20 @@ class House {
     }
 }
 
+class Test(name: String) {
+    val str = "First property: $name"
+
+    init {
+        println("Initialisation block")
+    }
+}
+
+class Test2 private constructor(val name: String) {
+    init {
+        println("Initialize name as $name")
+    }
+}
+
 fun main() {
     val g1 = Giraffe()
     val g2 = Giraffe()
@@ -72,4 +86,10 @@ fun main() {
     println(house)
     house.sofa = "Leather sofa"
     println(house)
+
+    // init block
+    val t = Test("hello")
+    println(t.str)
+
+//    val t2 = Test2("hi")
 }
