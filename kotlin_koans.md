@@ -15,4 +15,11 @@
 5.
 ![img_4.png](img_4.png)
 
-6.
+
+### Classes
+
+1.
+![img_5.png](img_5.png)
+
+4.
+![img_6.png](img_6.png)

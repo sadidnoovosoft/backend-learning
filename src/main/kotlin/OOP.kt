@@ -28,7 +28,11 @@ class Cup {
 }
 
 class House {
-    var sofa: String = ""
+    var sofa: String
+
+    constructor(sofa: String) {
+        this.sofa = sofa
+    }
 
     override fun toString(): String {
         return "House(sofa='$sofa')"
@@ -81,7 +85,7 @@ fun main() {
     println(c1)
     println(c2)
 
-    val house = House()
+    val house = House("")
     house.sofa = "Sleeper Sofa"
     println(house)
     house.sofa = "Leather sofa"
