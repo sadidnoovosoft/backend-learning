@@ -15,6 +15,8 @@
 5.
 ![img_4.png](img_4.png)
 
+6.
+![img_13.png](img_13.png)
 
 ### Classes
 
