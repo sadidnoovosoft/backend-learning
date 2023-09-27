@@ -57,4 +57,15 @@ fun main() {
     mutableIntSet += intSet
     mutableIntSet += 5
     println(mutableIntSet)
+
+    val l = listOf(1, 2, 3, 4)
+    val simpleSum = l.fold(0) { sum, element -> sum + element }
+    val simpleSumReduce = l.reduce { sum, element -> sum + element }
+    println(simpleSum)
+    println(simpleSumReduce)
+
+    val doubledSumFold = l.fold(0) { sum, element -> sum + 2 * element }
+    println(doubledSumFold)
+    val doubledSumReduce = l.reduce { sum, e -> sum + 2 * e }
+    println(doubledSumReduce)
 }
