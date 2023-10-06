@@ -1,5 +1,7 @@
 package exercise
 
+import kotlin.math.ceil
+
 data class Item(
     val width: Int,
     val length: Int,
@@ -42,45 +44,25 @@ val items = listOf(
 )
 
 fun main() {
-    val normalizedItems = items
-        .map {
-            it.copy(
-                width = roundUpToMultiple(it.width, 20),
-                length = roundUpToMultiple(it.length, 20),
-            )
-        }
-        .map { normalize(it) }
-        .flatten()
-
+    val normalizedItems = items.map { it.normalize() }.flatten()
     normalizedItems.forEach { println(it) }
 }
 
 fun roundUpToMultiple(value: Int, multiple: Int): Int {
-    return if (value % multiple != 0) {
-        (value / multiple + 1) * multiple
-    } else {
-        value
-    }
+    return ceil(value.toDouble() / multiple).toInt() * multiple
 }
 
-fun normalize(item: Item): List<NormalizedItem> {
-    val normalizedItems = mutableListOf<NormalizedItem>()
-    val unitsToBeInserted = if (item.isStackable) item.quantity / 2 else item.quantity
-
+fun Item.normalize(): List<NormalizedItem> {
+    val unitsToBeInserted = if (isStackable) quantity / 2 else quantity
     val normalizedItem = NormalizedItem(
-        width = item.width,
-        length = item.length,
-        isStackable = item.isStackable,
-        isStacked = item.isStackable
+        roundUpToMultiple(width, 20), roundUpToMultiple(length, 20), isStackable, isStackable
     )
 
-    repeat(unitsToBeInserted) {
-        normalizedItems.add(normalizedItem.copy())
+    return List(unitsToBeInserted) {
+        normalizedItem.copy()
+    } + if (isStackable && quantity % 2 == 1) {
+        listOf(normalizedItem.copy(isStacked = false))
+    } else {
+        emptyList()
     }
-
-    if (item.isStackable && item.quantity % 2 == 1) {
-        normalizedItems.add(normalizedItem.copy(isStacked = false))
-    }
-
-    return normalizedItems
 }
