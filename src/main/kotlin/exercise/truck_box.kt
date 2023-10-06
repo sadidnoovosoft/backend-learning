@@ -44,7 +44,7 @@ val items = listOf(
 )
 
 fun main() {
-    val normalizedItems = items.map { it.normalize() }.flatten()
+    val normalizedItems = items.flatMap { it.normalize() }
     normalizedItems.forEach { println(it) }
 }
 
